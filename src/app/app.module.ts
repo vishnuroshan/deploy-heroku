@@ -2,27 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient, HttpParams, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NewsComponent } from './news/news.component';
-import { MarketComponent } from './market/market.component';
 import { ToolsComponent } from './tools/tools.component';
 import { HomeComponent } from './home/home.component';
+
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   },
   {
-    path: 'news',
-    component: NewsComponent
-  },
-  {
-    path: 'market',
-    component: MarketComponent
-  },
-  {
-    path: 'tools',
+    path: 'git',
     component: ToolsComponent
   }
 ];
@@ -30,8 +22,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NewsComponent,
-    MarketComponent,
     ToolsComponent,
     HomeComponent
   ],
@@ -44,4 +34,11 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      console.log(params);
+    });
+  }
+}
