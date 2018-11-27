@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-tools',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private github: GithubService) {
+    github.getRepos('vishnuroshan', '1', 'discription').subscribe(data => {
+      console.log(data);
+    });
+  }
 
   ngOnInit() {
   }

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { HttpClient, HttpParams, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
 import { MarketComponent } from './market/market.component';
@@ -36,6 +36,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
