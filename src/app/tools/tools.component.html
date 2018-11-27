@@ -1,3 +1,18 @@
-<p>
-  tools works!
-</p>
+<h1 style="text-align: center;">
+  Repo search
+</h1>
+<div style="text-align: center;">
+  <input style="border-radius: 5px;
+  border-style: ridge;
+  margin: auto;
+  font-size: 7vw;
+  margin: -10px;"
+    placeholder="Enter username" type="text" [(ngModel)]="username" >
+</div>
+<button (click)="getData()">Search</button>
+
+<div *ngFor="let datum of data; let i=index">{{i+1}} {{datum.full_name}}
+
+    <a href="datum.html_url">{{datum.html_url}}</a>
+</div>
+
