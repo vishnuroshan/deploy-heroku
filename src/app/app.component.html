@@ -1,4 +1,6 @@
 <div class="container">
   <router-outlet *ngIf="!queryAvailable"></router-outlet>
-  {{qParam}}
+  <h1 *ngIf="queryAvailable">
+    {{qParam}}
+  </h1>
 </div>

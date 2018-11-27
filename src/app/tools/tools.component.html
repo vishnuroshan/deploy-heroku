@@ -2,14 +2,9 @@
   Repo search
 </h1>
 <div style="text-align: center;">
-  <input style="border-radius: 5px;
-  border-style: ridge;
-  margin: auto;
-  font-size: 7vw;
-  margin: -10px;"
-    placeholder="Enter username" type="text" [(ngModel)]="username">
+  <input class="form-control" placeholder="Enter username" type="text" [(ngModel)]="username">
 </div>
-<button style="text-align: center;" (click)="getData()">Search</button>
+<button class="btn-block" (click)="getData()">Search</button>
 
 <div *ngFor="let datum of data; let i=index">{{i+1}} {{datum.full_name}}
 
