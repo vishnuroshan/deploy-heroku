@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: AppComponent
   },
   {
     path: 'git',
@@ -34,11 +34,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-  constructor(private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
-    });
-  }
-}
+export class AppModule { }
