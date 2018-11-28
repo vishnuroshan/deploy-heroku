@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ToolsComponent } from './tools/tools.component';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -22,8 +21,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ToolsComponent,
-    HomeComponent
+    ToolsComponent
   ],
   imports: [
     BrowserModule,
