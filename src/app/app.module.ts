@@ -3,15 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ToolsComponent } from './tools/tools.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AppComponent
-  },
   {
     path: 'git',
     component: ToolsComponent

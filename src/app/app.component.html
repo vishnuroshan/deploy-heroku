@@ -1,6 +1,89 @@
-<div class="container">
-  <router-outlet *ngIf="!queryAvailable"></router-outlet>
-  <h1 *ngIf="queryAvailable">
-    {{qParam}}
-  </h1>
+<!-- <nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top" style="background: ghostwhite; margin-bottom: 0 !important;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/icons/medime_color.svg" alt="Logo" style="width:22px;">
+      </a>
+      <a class="navbar-brand">Medime</a>
+    </div>
+  </div>
+</nav> -->
+<nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top" style="padding: 12px; border-radius: 0; border-bottom: 1px solid;">
+  <img src="../assets/icons/medime_color.svg" style="height: 60px;
+  float: left;">
+  <p style="float: left; font-size: 12px; opacity: 0.5; margin-top: 6px;
+  margin-left: 6px; color: #35a3ae;">Report
+    provded by <span style="font-size: 16px; font-weight: 600"><br>Medime</span></p>
+  <p style="font-size: 12px;
+  text-align: end;
+  margin-bottom: 0;
+  opacity: 0.5;">
+    Vishnu Roshan<br>
+    24Y, M<br>
+    vishnuroshan4@gmail.com<br>
+    8989898985
+  </p>
+</nav>
+<div class="container" style="width: 100%; height: 100%;">
+
+  <!-- <div class="jumbotron text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p> 
+  </div> -->
+  <ng-container>
+    <h4>Allergies</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Procedures</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
 </div>
