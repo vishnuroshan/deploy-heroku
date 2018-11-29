@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { param } from '../app/app.type';
-import { error } from '@angular/compiler/src/util';
+
 
 @Component({
   selector: 'app-root',
