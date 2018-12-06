@@ -8,7 +8,6 @@ import { AUTHORIZATION, HPAPPTOKEN } from './app.strings';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  
   constructor() {
   }
 

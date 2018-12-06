@@ -9,15 +9,16 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'deploy-heroku';
-  qParam: param;
-  queryAvailable = false;
-
+public records: any;
   constructor(private data: DataService) {
     // tslint:disable-next-line:no-shadowed-variable
     data.getData().subscribe(data => {
       console.log(data);
+      if (data) {
+        this.records = data;
+      }
     });
   }
+
 }
 
