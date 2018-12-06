@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { param } from '../app/app.type';
+import { DataService } from './data.service';
 
 
 @Component({
@@ -13,17 +13,11 @@ export class AppComponent {
   qParam: param;
   queryAvailable = false;
 
-  constructor(private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
-      try {
-        this.qParam = params['patient_id'];
-        if (this.qParam !== undefined) {
-          this.queryAvailable = true;
-        }
-      } catch (err) {
-        console.log(err);
-      }
+  constructor(private data: DataService) {
+    // tslint:disable-next-line:no-shadowed-variable
+    data.getData().subscribe(data => {
+      console.log(data);
     });
   }
-
 }
+
