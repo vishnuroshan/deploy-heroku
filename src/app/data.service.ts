@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BASE_URL } from './app.strings';
+import { BASE_URL, GETDATA_URL } from './app.strings';
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
@@ -16,13 +16,14 @@ export class DataService {
   getData(): Observable<any> {
     return Observable.create(observer => {
       this.route.queryParams.subscribe(params => {
-        console.log('params', params['personId']);
         const paramData = new HttpParams().set('personId', params['personId']);
         console.log(paramData);
-        this.http.get(BASE_URL, { params: paramData }).subscribe(data => {
-          console.log('data:', data);
-          observer.next(data);
-        });
+        if (params['personId']) {
+          this.http.get(GETDATA_URL, { params: paramData }).subscribe(data => {
+            console.log('data:', data);
+            observer.next(data);
+          });
+        }
       });
 
 

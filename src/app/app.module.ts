@@ -5,6 +5,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { InterceptorService } from './interceptor.service';
+import { HeaderPipe } from './header.pipe';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { TypeformatPipe } from './typeformat.pipe';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 const routes: Routes = [
   {
@@ -15,9 +21,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderPipe,
+    TypeformatPipe
   ],
   imports: [
+    MatExpansionModule,
+    BrowserAnimationsModule,
+    PdfViewerModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
