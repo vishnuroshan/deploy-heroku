@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BASE_URL, GETDATA_URL } from './app.strings';
+import { BASE_URL, ROUTE_WEBQUERY } from './app.strings';
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class DataService {
         const paramData = new HttpParams().set('personId', params['personId']);
         console.log(paramData);
         if (params['personId']) {
-          this.http.get(GETDATA_URL, { params: paramData }).subscribe(data => {
+          this.http.get(ROUTE_WEBQUERY, { params: paramData }).subscribe(data => {
             console.log('data:', data);
             observer.next(data);
           });

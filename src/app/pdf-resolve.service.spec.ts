@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ResolvefileService } from './resolvefile.service';
+import { PdfResolveService } from './pdf-resolve.service';
 
-describe('ResolvefileService', () => {
+describe('PdfResolveService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ResolvefileService = TestBed.get(ResolvefileService);
+    const service: PdfResolveService = TestBed.get(PdfResolveService);
     expect(service).toBeTruthy();
   });
 });
