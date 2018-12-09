@@ -10,6 +10,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TypeformatPipe } from './typeformat.pipe';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 const routes: Routes = [
@@ -26,10 +27,11 @@ const routes: Routes = [
     TypeformatPipe
   ],
   imports: [
+    BrowserModule,
     MatExpansionModule,
+    MatProgressBarModule,
     BrowserAnimationsModule,
     PdfViewerModule,
-    BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes)

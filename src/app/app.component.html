@@ -1,26 +1,14 @@
-<!-- <nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top" style="background: ghostwhite; margin-bottom: 0 !important;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <img src="../assets/icons/medime_color.svg" alt="Logo" style="width:22px;">
-      </a>
-      <a class="navbar-brand">Medime</a>
-    </div>
-  </div>
-</nav> -->
-<!-- <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer> -->
-
 <div *ngIf="records !== undifined">
-
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
   <nav class="navbar navbar-expand-sm background navbar-dark sticky-top" style="padding: 12px; border-radius: 0; border-bottom: 1px solid;">
     <img src="../assets/icons/MediMeLogo.svg" style="height: 60px;
     float: left;">
-    <p style="float: left; margin-top: 6px; font-size: 16px; font-weight: 600">Medime</p>
+    <p style="float: left; margin-top: 12px; color: #fff; margin-left: 2px; font-size: 16px; font-weight: 600">Medime</p>
     <p style="font-size: 12px;
     color: #fff;
     text-align: end;
-    margin-bottom: 0;
-">
+    margin-bottom: 0;">
+
       {{userDetails['person_name']}}<br>
       {{userDetails['age']['years']}}, {{userDetails['gender']}}<br>
       {{userDetails['email_id']}}<br>
@@ -41,7 +29,7 @@
           <thead>
             <tr>
               <th *ngFor="let header of record['sections']">
-                {{header['question'][0]['text']}}
+                {{header['domainName']}}
               </th>
             </tr>
           </thead>
@@ -49,7 +37,8 @@
           <tbody *ngFor="let table of record['value']">
             <tr>
               <td *ngFor="let data of table['request_clin_note_content']['topics'][0]['sections']">
-                {{ data['selected'] | typeformat}}
+                <p *ngIf="!ifAttachment(data, table)">{{ data['selected'] | typeformat }}</p>
+                <p style="color:red;" *ngIf="ifAttachment(data, table)" (click)="pdfUrl(table['file_path'])">Attachment</p>
               </td>
             </tr>
           </tbody>

@@ -22,4 +22,16 @@ export class PdfResolveService {
       });
     });
   }
+
+  getPdf(url): Observable<any> {
+    return Observable.create(observer => {
+      this.http.get(url, { responseType: 'arraybuffer' }).subscribe((file: ArrayBuffer) => {
+        const pdf = new Uint8Array(file);
+        // create openable url for pdf
+        const blob = new Blob([(<any>pdf)], { type: 'application/pdf' });
+        const urls = window.URL.createObjectURL(blob);
+        observer.next(urls);
+      });
+    });
+  }
 }
