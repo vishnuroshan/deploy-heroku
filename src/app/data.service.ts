@@ -13,18 +13,18 @@ export class DataService {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
-  getData(): Observable<any> {
+  getData(param): Observable<any> {
     return Observable.create(observer => {
-      this.route.queryParams.subscribe(params => {
-        const paramData = new HttpParams().set('personId', params['personId']);
-        console.log(paramData);
-        if (params['personId']) {
-          this.http.get(ROUTE_WEBQUERY, { params: paramData }).subscribe(data => {
-            console.log('data:', data);
-            observer.next(data);
-          });
-        }
-      });
+      console.log(param);
+      const paramData = new HttpParams().set('key', param);
+      console.log(paramData);
+      if (param) {
+        this.http.get(ROUTE_WEBQUERY, { params: paramData }).subscribe(data => {
+          console.log('data:', data);
+          observer.next(data);
+        });
+      }
+
 
 
     });

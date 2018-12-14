@@ -4,6 +4,7 @@ import { DataService } from './data.service';
 import * as _ from 'lodash';
 import { UtilitiesService } from './utilities.service';
 import { PdfResolveService } from './pdf-resolve.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -17,19 +18,26 @@ export class AppComponent {
   public userDetails: UserDetails;
   public age: Object;
   public isLoading = false;
-  pdfSrc = 'EN_MEDIME/uploads/PR_000473/shared/0004731544102015170_EN.pdf';
-
-  constructor(private data: DataService, private pdf: PdfResolveService, private utils: UtilitiesService) {
+  public code;
+  constructor(private route: ActivatedRoute, private data: DataService, private pdf: PdfResolveService, private utils: UtilitiesService) {
     this.getData();
+
+    this.route.params.subscribe((code) => {
+      this.code = code;
+      console.log(code);
+    });
   }
 
   getData() {
-    this.data.getData().subscribe(data => {
-      if (data) {
-        this.userDetails = this.utils.getUserDetails(data);
-        this.records = this.utils.groupByConcept(data);
-        console.log(this.records);
-      }
+    this.route.params.subscribe((code) => {
+      console.log(code['id']);
+      this.data.getData(code['id']).subscribe(data => {
+        if (data) {
+          this.userDetails = this.utils.getUserDetails(data);
+          this.records = this.utils.groupByConcept(data);
+          console.log(this.records);
+        }
+      });
     });
   }
 
