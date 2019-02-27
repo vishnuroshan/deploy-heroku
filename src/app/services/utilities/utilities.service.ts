@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserDetails } from './app.type';
+import { UserDetails } from '../../app.type';
 import * as _ from 'lodash';
 
 @Injectable({
@@ -7,8 +7,18 @@ import * as _ from 'lodash';
 })
 export class UtilitiesService {
 
-  constructor( ) { }
+  constructor() { }
 
+  public getAllDetails(data): Array<Object> {
+    const userDetails = {
+      email_id: data[0]['email_id'],
+      person_name: data[0]['person_name'],
+      age: data[0]['age'],
+      mobile_no: data[0]['mobile_no'],
+      gender: data[0]['gender']
+    };
+    return [userDetails, this.getKeyValuePairs(_.groupBy(data, 'concept_code'))];
+  }
 
   getUserDetails(data): UserDetails {
     return {

@@ -1,0 +1,52 @@
+<p>APP COMPONENT</p>
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <div *ngIf="records !== undifined">
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  <nav class="navbar navbar-expand-sm background navbar-dark sticky-top" style="padding: 12px; border-radius: 0; border-bottom: 1px solid;">
+    <img src="../assets/icons/MediMeLogo.svg" style="height: 60px;
+    float: left;">
+    <p style="float: left; margin-top: 12px; color: #fff; margin-left: 2px; font-size: 16px; font-weight: 600">Medime</p>
+    <p style="font-size: 12px;
+    color: #fff;
+    text-align: end;
+    margin-bottom: 0;">
+
+      {{user[0]['person_name']}}<br>
+      {{user[0]['age']['years']}}, {{userDetails['gender']}}<br>
+      {{user[0]['email_id']}}<br>
+      {{user[0]['mobile_no']}}
+    </p>
+  </nav>
+
+  <div class="container" style="width: 100%; height: 100%;">
+    <ng-container *ngFor="let record of records">
+
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{record['key']}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th *ngFor="let header of user[1]">
+                {{header['domainName']}}
+              </th>
+            </tr>
+          </thead>
+
+          <tbody *ngFor="let table of record['value']">
+            <tr>
+              <td *ngFor="let data of table['request_clin_note_content']['topics'][0]['sections']">
+                <p *ngIf="!ifAttachment(data, table)">{{ data['selected'] | typeformat }}</p>
+                <p style="color:red;" *ngIf="ifAttachment(data, table)" (click)="pdfUrl(table['file_path'])">Attachment</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+    </ng-container>
+  </div>
+</div> -->
