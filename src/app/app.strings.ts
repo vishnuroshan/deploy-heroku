@@ -1,4 +1,34 @@
-// tslint:disable-next-line:max-line-length
-export const AUTHORIZATION = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwZXJzb25faWQiOiIwMDA0NzEiLCJwZXJzb25fbmFtZSI6IkFsaWNpYSBCYW5rcyBCYW5rcyIsInBob3RvX3VybCI6Imh0dHBzOi8vczMtYXAtc291dGgtMS5hbWF6b25hd3MuY29tL2hwLWFwcC1yZXNvdXJjZS1kZXZ0ZXN0L0VOX01FRElNRS9waG90b3MvMDAwNDcxLnBuZyIsIm1vYmlsZV9ubyI6IjAwMDAwMDAwMDAiLCJlbWFpbF9pZCI6IlB1cGdAZ21haWwuY29tIiwic2VjdXJpdHlfcGluIjoiJDJhJDEwJGs0UXVjRXptRkRlL1VBNGhqenhKSk9pTHV6c3hoQjN4clZOVG1Ed2JpMFBMMFZqRVpTYXFTIiwibGFzdF9mYWlsZWRfYWNjZXNzIjoiMjAxOC0xMi0wNFQwNzozNDoxNi4wMDBaIiwiZmFpbGVkX2F0dGVtcHRzIjoiMCIsImFjY190eXBlIjoiSCIsImlhdCI6MTU0NDA3ODUxOCwiZXhwIjoxNTQ0NjgzMzE4LCJhdWQiOiJIZWFsdGhwbHVnIFVzZXJzIiwiaXNzIjoiSGVhbHRocGx1ZyBzZXJ2ZXIiLCJzdWIiOiJIZWFsdGhwbHVnIEF1dGggdG9rZW4iLCJqdGkiOiJramZkdThlcnk4N3FkZndmZXdlNjMifQ.RQxWSEYiNXchy4aQ299uq5CeRiL7ydgb1EuucXXZHf4';
+import { PeriodicElement } from './interfaces/PeriodicElement';
+
 // tslint:disable-next-line:max-line-length
 export const HPAPPTOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbnRpdHlJZCI6Ik1FRElNRSIsImlhdCI6MTUzNTYwMzc0NiwiYXVkIjoiSGVhbHRocGx1ZyBBcHBzIiwiaXNzIjoiSGVhbHRocGx1ZyBzZXJ2ZXIiLCJzdWIiOiJIZWFsdGhwbHVnIEFwcHMgdG9rZW4iLCJqdGkiOiJvZXI0NDVqZGxkc2tqZmgzOG9oZCJ9.66iJl-9Wmr8-pXgKpTZRXs5aBIW8rznSFg1A1cqkjA4';
+
+// base url
+export const BASE_URL = 'http://medime.hplug.co/api/';
+
+// strings
+export const SUCCESS = 'SUCCESS';
+export const KEY_STRING = 'key';
+export const TOKEN_STRING = 'token';
+export const STATUS_STRING = 'status';
+
+export const ARRAY_BUFFER = 'arraybuffer';
+export const APP_PDF = 'application/pdf';
+// routes
+export const TOKEN_ROUTE = ':token';
+export const KEY_ROUTE = ':key';
+
+
+export const ELEMENT_DATA = [
+    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', sad: 'yes'},
+    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', sad: 'yes'},
+    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', sad: 'yes'},
+    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', sad: 'yes'},
+    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B', sad: 'yes'},
+    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', sad: 'yes'},
+    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', sad: 'yes'},
+    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', sad: 'yes'},
+    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', sad: 'yes'},
+    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', sad: 'yes'},
+  ];
+

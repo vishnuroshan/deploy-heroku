@@ -8,9 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod-no-config": "ng buils --prod",
-    "build-dev": "ng build --prod --c=development --base-href",
-    "build-prod": "ng build --prod --c=production --base-href"
+    "build-prod-no-config": "ng build --prod --base-href /medime/",
+    "build-dev": "ng build --prod --c=development --base-href /medime/",
+    "build-prod": "ng build --prod --c=production --base-href /medime/"
   },
   "private": true,
   "dependencies": {

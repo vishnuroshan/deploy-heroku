@@ -1,0 +1,41 @@
+.navbar-background {
+  background: linear-gradient(45deg, #3c516a 0%, #30707f 39%, #39b0c0 95%, #35bfc9 100%) !important;
+  color: white;
+  border-radius: 0 !important;
+}
+
+.home-class {
+
+  .user {
+    margin: 12px;
+
+    .user-name {
+      font-size: 18px;
+    }
+
+    .user-email {
+      font-size: 12px;
+    }
+  }
+
+  .content {
+
+    // .background {
+    //   background: linear-gradient(45deg, #3c516a 0%, #30707f 39%, #39b0c0 95%, #35bfc9 100%) !important;
+    // }
+    .margin-top {
+      margin: 12px !important;
+    }
+
+    th {
+      background: aliceblue !important;
+      vertical-align: inherit !important;
+      text-align: center;
+    }
+
+    td {
+      padding: 5px;
+      border-right: 1px solid #4444;
+    }
+  }
+}

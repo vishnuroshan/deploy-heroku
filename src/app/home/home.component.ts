@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data/data.service';
 import { PdfResolveService } from '../services/pdf-resolve/pdf-resolve.service';
 import { UtilitiesService } from '../services/utilities/utilities.service';
+import { KEY_STRING, ELEMENT_DATA } from '../app.strings';
+
 
 @Component({
   selector: 'app-home',
@@ -11,52 +13,44 @@ import { UtilitiesService } from '../services/utilities/utilities.service';
 })
 export class HomeComponent implements OnInit {
 
-  public user: Array<any> = [];
+  public user: Object;
   public age: Object;
   public isLoading = false;
-  public code;
+  public records: any;
+  public tableContent: Array<Object>;
 
   constructor(private route: ActivatedRoute,
     private data: DataService,
     private pdf: PdfResolveService,
     private utils: UtilitiesService) {
-      console.log('HOME');
-    this.getData();
   }
 
   ngOnInit() {
-    this.getData();
+    this.isLoading = true;
+    this.route.params.subscribe(param => {
+      this.getData(param[KEY_STRING]);
+    });
+
   }
 
-  getData() {
-    this.route.params.subscribe(param => {
-      console.log(param);
-      if (param['id']) {
-        this.data.getData(param['id']).subscribe(data => {
-          if (data) {
-            this.user = this.utils.getAllDetails(data);
-            console.log(this.user);
-          }
-        });
-
-      }
+  getData(param) {
+    this.data.getData(param).subscribe(data => {
+      this.tableContent = this.utils.getTableContent(data);
+      this.user = this.utils.getUserDetails(data);
+      this.isLoading = false;
     });
   }
 
-
   ifAttachment(d, t): boolean {
-    return (d['type'] === 'upload' && t['file_path']);
+    return (d['type'] === 'upload' && t['filePath']);
   }
 
   pdfUrl(url) {
     this.isLoading = true;
     this.pdf.resolveURL(url).subscribe(finalURL => {
       console.log(finalURL);
-      this.pdf.getPdf(finalURL).subscribe(data => {
-        this.isLoading = false;
-        console.log(data);
-        window.open(data);
-      });
+      this.isLoading = false;
+      window.open(finalURL);
     });
   }
 

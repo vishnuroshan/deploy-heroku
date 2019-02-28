@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DataService } from './services/data/data.service';
-import { PdfResolveService } from './services/pdf-resolve/pdf-resolve.service';
-import { UtilitiesService } from './services/utilities/utilities.service';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -10,5 +7,5 @@ import { UtilitiesService } from './services/utilities/utilities.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'deploy';
+  title = 'deploy-heroku';
 }

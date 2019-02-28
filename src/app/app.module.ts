@@ -15,6 +15,7 @@ import { HomeModule } from './home/home.module';
 import { PipesModule } from './pipes/pipes.module';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { UserDetails } from '../../app.type';
 import * as _ from 'lodash';
 
 @Injectable({
@@ -9,38 +8,52 @@ export class UtilitiesService {
 
   constructor() { }
 
-  public getAllDetails(data): Array<Object> {
-    const userDetails = {
-      email_id: data[0]['email_id'],
-      person_name: data[0]['person_name'],
-      age: data[0]['age'],
-      mobile_no: data[0]['mobile_no'],
-      gender: data[0]['gender']
-    };
-    return [userDetails, this.getKeyValuePairs(_.groupBy(data, 'concept_code'))];
-  }
-
-  getUserDetails(data): UserDetails {
-    return {
-      email_id: data[0]['email_id'],
-      person_name: data[0]['person_name'],
-      age: data[0]['age'],
-      mobile_no: data[0]['mobile_no'],
-      gender: data[0]['gender']
-    };
-  }
-
-  groupByConcept(data): Array<Object> {
-    const result = this.getKeyValuePairs(_.groupBy(data, 'concept_code'));
+  public getUserDetails(data: Array<Object>): Object {
+    delete data[0]['request_clin_note_content'];
+    const result: Object = data[0];
     return result;
   }
 
-  getKeyValuePairs(JSON): Array<Object> {
+
+  public getKeyValue(JSON): Array<Object> {
     const result: Array<Object> = new Array<Object>();
     // tslint:disable-next-line:forin
     for (const key in JSON) {
-      // console.log(JSON[key][0]['request_clin_note_content']['topics'][0]['sections']);
-      result.push({ key: key, value: JSON[key], sections: JSON[key][0]['request_clin_note_content']['topics'][0]['sections'] });
+      // console.log(JSON[key]['content']);
+      result.push({
+        key: key,
+        value: JSON[key],
+        domainName: JSON[key][0]['content']
+      });
+    }
+    return result;
+  }
+
+  public getTableContent(data): Array<any> {
+    const result: Array<any> = new Array<any>();
+    // tslint:disable-next-line:forin
+    for (const key of data) {
+      result.push({
+        mainHeader: key['concept_code'],
+        content: this.getInnerContent(key['request_clin_note_content']['topics'][0]['sections']),
+        filePath: key['file_path']
+      });
+    }
+    console.log(this.getKeyValue(_.groupBy(result, 'mainHeader')));
+    return this.getKeyValue(_.groupBy(result, 'mainHeader'));
+  }
+
+  public getInnerContent(sections): Array<Object> {
+    const result: Array<any> = new Array<any>();
+    // tslint:disable-next-line:forin
+    for (const section of sections) {
+      // console.log(section);
+      result.push({
+        domainName: section['domainName'],
+        domainCode: section['domainCode'],
+        selected: section['selected'],
+        type: section['type']
+      });
     }
     return result;
   }
