@@ -32,7 +32,7 @@
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
-    "ng2-pdf-viewer": "^5.2.3",
+    "ng2-pdf-viewer": "^10.3.0",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
